@@ -30,7 +30,7 @@
                         <div class="flex items-center justify-end">
                             <p class="text-sm font-medium font-roboto-condensed text-white">Belum terdaftar? </p><a href="#" class="text-sm font-roboto-condensed font-medium text-[#FE5F55] hover:underline">Daftar</a>
                         </div>
-                        <button type="submit" class="w-full text-white bg-[#FE5F55] hover:bg-[#d94a41] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
+                        <button type="submit" class="w-full text-white bg-[#FE5F55] hover:bg-[#d94a41] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">LOGIN</button>
                         
                     </form>
                 </div>
