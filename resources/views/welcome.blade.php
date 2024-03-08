@@ -43,7 +43,7 @@
             });
         });
     });
-</script>
+  </script>
 </head>
 <body class="bg-[#BDD5EA]">
 @include('partial.navbar')

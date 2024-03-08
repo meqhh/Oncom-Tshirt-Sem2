@@ -8,7 +8,11 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
     @vite('resources/css/app.css')
 </head>
-<body>
-    
+<body class="bg-[#BDD5EA]">
+@include('partial.navbar')
+
+    s
+
+@include('partial.footer')
 </body>
 </html>
