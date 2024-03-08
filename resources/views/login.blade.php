@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Oncom Login</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
     @vite('resources/css/app.css')
+
 </head>
-<body>
+<body class="bg-[#BDD5EA]">
     <section class="bg-[#BDD5EA]">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+            <a href="{{ asset ('/') }}" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                 <img src="{{ asset ('img/logo.png') }}" alt="logo">  
             </a>
             <div class="w-full bg-[#577399] rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
