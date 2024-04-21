@@ -10,8 +10,8 @@
             <a href="#">
                 <img class="w-8" src="{{ asset('img/cart.png') }}" alt="">
             </a>
-            <a href="#" class="text-[#FE5F55] font-bold font-roboto-condensed text-3xl">
-                Contact
+            <a href="#">
+                <img class="w-8" src="{{ asset('img/contact.png') }}" alt="">
             </a>
             <span class="text-[#FE5F55] font-bold font-roboto-condensed text-3xl">
                 Nama_user

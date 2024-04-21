@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Oncom Login</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
-    @vite('resources/css/app.css')
-
-</head>
-<body class="bg-[#BDD5EA]">
+@extends('layout.main')
     <section class="bg-[#BDD5EA]">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <a href="{{ asset ('/') }}" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
@@ -39,5 +28,3 @@
             </div>
         </div>
       </section>
-</body>
-</html>
