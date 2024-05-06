@@ -1,4 +1,4 @@
-<footer class="w-full bg-[#495867] flex-shrink-0">
+<footer class="w-full bg-[#495867] flex-shrink-0 z-30">
     {{-- footer atas --}}
     <div class="flex justify-center items-center pt-8 pb-8 gap-12">
         <a href="" class="text-[#FE5F55] font-semibold font-roboto-condensed text-3xl">

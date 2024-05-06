@@ -28,3 +28,7 @@ Route::get('register', function () {
 Route::get('contact', function () {
     return view('contact');
 });
+
+Route::get('search', function () {
+    return view('search');
+});
