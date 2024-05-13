@@ -15,7 +15,7 @@
         </a>
     </div>
     {{-- line --}}
-    <div class="text-[#FE5F55] w-screen h-1 bg-[#FE5F55]"></div>
+    <div class="text-[#FE5F55] w-auto h-1 bg-[#FE5F55]"></div>
     {{-- footer bawah --}}
     <div class="flex flex-row px-10 py-4 justify-between align-middle">
         <div>

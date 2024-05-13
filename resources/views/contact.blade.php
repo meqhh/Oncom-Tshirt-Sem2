@@ -9,7 +9,7 @@
                 <div class="flex items-center">
                 </div>
                 <h1 class=" text-center font-roboto-condensed text-3xl xl:text-4xl font-bold leading-tight tracking-tight text-white items-center justify-center">
-                    kontak kami
+                    kontak kami 
                 </h1>
                 <form class="space-y-4 md:space-y-6" action="#">
                     <div>
