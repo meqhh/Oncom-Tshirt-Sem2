@@ -34,3 +34,19 @@ Route::get('contact', function () {
 Route::get('search', function () {
     return view('search');
 });
+
+Route::get('admin', function () {
+    return view('dashboard_admin');
+});
+
+Route::get('favorite', function () {
+    return view('favorite');
+});
+
+Route::get('keranjang', function () {
+    return view('keranjang');
+});
+
+Route::get('list', function () {
+    return view('list');
+});
