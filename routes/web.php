@@ -50,3 +50,7 @@ Route::get('keranjang', function () {
 Route::get('list', function () {
     return view('list');
 });
+
+Route::get('page', function () {
+    return view('page');
+});
