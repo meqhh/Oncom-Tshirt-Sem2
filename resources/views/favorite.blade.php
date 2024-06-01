@@ -1,4 +1,3 @@
-
 @extends('layout.main')
 @include('partial.navbar')
     <div class="grid grid-cols-3 gap-2 py-40 px-10">
