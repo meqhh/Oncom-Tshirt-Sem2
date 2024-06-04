@@ -1,33 +1,9 @@
 @extends('layout.main')
-
 @include('partial.navbar')
-{{-- <style>
-          /* CSS untuk memindahkan tabel ke tengah dengan flexbox */
-    .center-table {
-        display: flex;
-        justify-content: center;
-    }
-    /* Styling untuk tabel */
-    table {
-        width: 50%; /* Lebar tabel */
-    }
-    table {
-        width: 50%; /* Lebar tabel di dalam parent (80% dari parent karena menggunakan .center-table) */
-        border-collapse: collapse;
-    }
-    th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-   
-</style> --}}
+
 <div class="w-full flex flex-row">
     <div class="w-1/4">
-        @include('admin.adminpanel')
+        @include('components.adminpanel')
     </div>
     <div class="w-3/4 flex content-center flex-col items-center py-20">
       <div class="mb-4 w-3/4"><h1 class="font-bold text-white text-2xl">Pesanan Terkirim</h1></div>
@@ -57,6 +33,5 @@
       </table>
     </div>
 </div>
-    
-
+   
 @include('partial.footer')

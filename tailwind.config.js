@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
 export default {
   content: [
     "./resources/**/*.blade.php",
@@ -15,6 +16,7 @@ export default {
   },
   fontFamily:{
     'roboto-condensed': ['Roboto Condensed', 'sans-serif'],
+    sans: ['Inter var', ...defaultTheme.fontFamily.sans],
   },
   fontFamily: {
     'body': [
