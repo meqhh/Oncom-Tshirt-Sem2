@@ -30,7 +30,7 @@
         @include('admin.adminpanel')
     </div>
     <div class="w-3/4 flex content-center flex-col items-center py-20">
-      <div class="w-"><h1 class="font-bold text-white text-2xl">Pesanan Terkirim</h1></div>
+      <div class="mb-4 w-3/4"><h1 class="font-bold text-white text-2xl">Pesanan Terkirim</h1></div>
       <table class="w-3/4">
         <thead class="bg-white">
             <tr class="w-6">
