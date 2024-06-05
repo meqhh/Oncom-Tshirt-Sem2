@@ -25,7 +25,6 @@ class User extends Authenticatable
         'date_of_birth',
         'email', 
         'password',
-        'status', 
     ];
 
     protected $guarded = [
@@ -40,7 +39,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**

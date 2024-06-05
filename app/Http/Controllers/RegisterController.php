@@ -21,8 +21,6 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
             'repassword' => 'required|same:password',
-            'status' => 'required'
-
         ]);
         
         // Hash password
@@ -35,7 +33,6 @@ class RegisterController extends Controller
             'date_of_birth' => $validatedData['date_of_birth'],
             'email' => $validatedData['email'],
             'password' => $validatedData['password'],
-            'status' => $validatedData['status'],
         ];
 
         // Simpan data ke database

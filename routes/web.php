@@ -59,7 +59,8 @@ Route::get('list_users', function () {
     return view('admin.list_users');
 });
 
-// Route::get('admin.users', [ListUsersController::class, 'show']);
+Route::get('/listusers', [ListUsersController::class, 'showUser']);
+Route::delete('/listusers/{id}', [ListUsersController::class, 'destroy'])->name('users.destroy');;
 Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'create']);
 Route::get('/login', [LoginController::class, 'index']);
