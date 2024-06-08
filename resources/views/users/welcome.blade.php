@@ -2,7 +2,7 @@
 
 @include('partial.navbar')
 
-<div class="">
+<div class="w-full min-h-screen">
 
   
 

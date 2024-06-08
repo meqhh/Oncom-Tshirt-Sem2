@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller; // Ensure the base controller is imported
+use App\Http\Controllers\Controller; 
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -23,10 +23,8 @@ class RegisterController extends Controller
             'repassword' => 'required|same:password',
         ]);
         
-        // Hash password
         $validatedData['password'] = Hash::make($validatedData['password']);
         
-        //  array data baru tanpa repassword
         $userData = [
             'name' => $validatedData['name'],
             'address' => $validatedData['address'],
@@ -35,10 +33,8 @@ class RegisterController extends Controller
             'password' => $validatedData['password'],
         ];
 
-        // Simpan data ke database
         User::create($userData);
 
-        // Redirect atau kirim respon sukses
         return redirect('/')->with('success', 'Registration successful!');
     }
 }

@@ -58,6 +58,12 @@ Route::get('admin', function () {
 Route::get('list_users', function () {
     return view('admin.list_users');
 });
+Route::get('produk', function () {
+    return view('admin.list_produk');
+});
+Route::get('tambah', function () {
+    return view('admin.list_produk');
+});
 
 Route::get('/listusers', [ListUsersController::class, 'showUser']);
 Route::delete('/listusers/{id}', [ListUsersController::class, 'destroy'])->name('users.destroy');;

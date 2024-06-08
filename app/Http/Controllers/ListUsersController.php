@@ -19,8 +19,8 @@ class ListUsersController extends Controller
     public function destroy($user_id)
     {
         // Mencari pengguna berdasarkan id dan menghapusnya
-        $user = User::findOrFail($user_id);
-        $user->delete();
+        $users = User::findOrFail($user_id);
+        $users->delete();
 
         // Mengarahkan kembali dengan pesan sukses
         return redirect()->back()->with('success', 'User deleted successfully');
