@@ -62,8 +62,12 @@ Route::get('produk', function () {
     return view('admin.list_produk');
 });
 Route::get('tambah', function () {
-    return view('admin.list_produk');
+    return view('admin.tambah');
 });
+Route::get('edit', function () {
+    return view('admin.editproduk');
+});
+
 
 Route::get('/listusers', [ListUsersController::class, 'showUser']);
 Route::delete('/listusers/{id}', [ListUsersController::class, 'destroy'])->name('users.destroy');;

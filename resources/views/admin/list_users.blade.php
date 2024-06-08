@@ -48,7 +48,6 @@ tr:nth-child(odd) {
                 <th>Tanggal Lahir</th>
                 <th>Email</th>
                 <th>Password</th>
-                <th>Status</th>
                 <th>Aksi</th>
             </tr>
         </theat>
@@ -61,9 +60,8 @@ tr:nth-child(odd) {
                     <td>{{ $show->date_of_birth }}</td>
                     <td>{{ $show->email }}</td>
                     <td>{{ $show->password }}</td>
-                    <td>{{ $show->status }}</td>
                     <td> 
-                        <form action="{{ route('delete.users', $show->user_id) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('users.destroy', $show->user_id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn-delete" onclick="return confirm('Are you sure want to delete this?')">Delete</button>

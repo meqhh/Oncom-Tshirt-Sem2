@@ -10,7 +10,7 @@
         @include('components.adminpanel')
     </div>
     <div class="w-3/4 flex content-center flex-col items-center py-20">
-        <div class="mb-10 w-full"><h1 class="font-bold text-white text-2xl">Tambah Produk</h1></div>
+        <div class="mb-10 w-full"><h1 class="font-bold text-white text-2xl">Edit Produk</h1></div>
         {{-- container input  --}}
         <form class="mb-4 w-full grid grid-cols-2 gap-8 pr-20">
             {{-- input nama  --}}
@@ -43,10 +43,10 @@
             </div>
             {{-- input gambar --}}
             <div class="w-full">
-              <input class="block w-full text-sm" id="file_input" type="file" accept="image/*" onchange="previewImage(event)">
+              <input class="block w-full text-sm mb-2" id="file_input" type="file" accept="image/*" onchange="previewImage(event)">
               <img id="image_preview" class="w-1/2 rounded-lg"/>
               <button class="text-[#FE5F55] font-bold text-xl mb-2 mt-6 py-1 px-4 rounded-md bg-white">
-                Tambah Produk +
+                Update Produk
               </button>
             </div>
         </form>
@@ -61,7 +61,7 @@
           const imagePreview = document.getElementById('image_preview');
           imagePreview.src = reader.result;
           imagePreview.style.display = 'block';
-          input.style.display = 'none';
+          input.style.display = 'block';
       };
       reader.readAsDataURL(input.files[0]);
   }
