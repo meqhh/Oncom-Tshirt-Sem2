@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 class ProductController extends Controller
 {
     public function create(){
@@ -66,6 +68,23 @@ class ProductController extends Controller
         $product->update($validatedData);
 
         return redirect()->route('product.index')->with('success', 'Produk berhasil diperbarui');
+    }
+
+    public function destroy($id)
+    {
+    $product = Product::findOrFail($id);
+
+    // Hapus gambar terkait jika ada
+    if ($product->image_url) {
+        // Dapatkan nama file dari URL gambar
+        $filename = $product->image_url;
+        // Hapus file dari penyimpanan publik
+        Storage::delete('public/' . $filename);
+    }
+
+    $product->delete();
+
+    return redirect()->route('product.index')->with('success', 'Produk berhasil dihapus');
     }
 
 }

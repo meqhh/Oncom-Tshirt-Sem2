@@ -75,6 +75,7 @@ Route::post('/product', [ProductController::class, 'store'])->name('product.stor
 Route::get('/listproduk', [ProductController::class, 'index'])->name('product.index');
 Route::get('/editproduk/{id}', [ProductController::class, 'edit'])->name('product.edit');
 Route::post('/editproduk/{id}', [ProductController::class, 'update'])->name('product.update');
+Route::delete('/editproduk/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
 // Route Controller User
 Route::get('/listusers', [ListUsersController::class, 'showUser']);
 Route::delete('/listusers/{id}', [ListUsersController::class, 'destroy'])->name('users.destroy');;

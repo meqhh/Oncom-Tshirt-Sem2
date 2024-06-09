@@ -46,9 +46,14 @@
             <div class="w-full">
               <input class="block w-full text-sm mb-2" id="file_input" name="image_url" type="file" accept="image/*" onchange="previewImage(event)">
               <img id="image_preview" class="w-1/2 rounded-lg" src="{{ asset($product->image_url) }}" />
-              <button type="submit" class="text-[#FE5F55] font-bold text-xl mb-2 mt-6 py-1 px-4 rounded-md bg-white">
+              <button type="submit" class="text-[#FE5F55] font-bold text-xl mb-2 mt-6 mr-4 py-1 px-4 rounded-md bg-white">
                 Update Produk
               </button>
+              <form action="{{ route('product.destroy', $product->product_id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+              <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')" class="text-[#FE5F55] font-bold text-xl mb-2 mt-6 py-1 px-4 rounded-md bg-white">Hapus Produk</button>
+              </form>
             </div>
         </form>
       

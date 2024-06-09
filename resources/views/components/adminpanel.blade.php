@@ -4,7 +4,7 @@
     </div>
     <div class="flex flex-col gap-12 w-full">
         <div class="w-full py-5 bg-[#577399] hover:bg-[#FE5F55] transition duration-500 ease-in-out">
-            <a href="produk"><h1 class="text-[#F7F7FF] text-center font-bold text-3xl">Produk</h1></a>
+            <a href="listproduk"><h1 class="text-[#F7F7FF] text-center font-bold text-3xl">Produk</h1></a>
         </div>
         <div class="w-full py-5 bg-[#577399] hover:bg-[#FE5F55] transition duration-500 ease-in-out">
             <a href=""><h1 class="text-[#F7F7FF] text-center font-bold text-3xl">Pesanan</h1></a>
