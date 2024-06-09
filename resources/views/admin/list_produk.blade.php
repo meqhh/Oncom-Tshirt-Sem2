@@ -25,15 +25,19 @@
             </tr>
         </thead>
         <tbody class="bg-white">
+            @foreach($products as $product)
             <tr class="bg-gray-100">
-                <td class="px-4 py-2 text-center">1</td>
-                <td class="px-4 py-2 flex justify-center"><img src="{{ asset('img/welcome.jpg') }}" alt="" class="w-32 h-32 object-cover"></td>
-                <td class="px-4 py-2 text-center">T-shirt</td>
-                <td class="px-4 py-2 text-center">Rp. 140.000</td>
-                <td class="px-4 py-2 text-center">At vero eos et accusamus et iusto...</td>
-                <td class="px-4 py-2 text-center">10</td>
-                <td class="px-4 py-2 text-center"><button class="text-[#FE5F55] underline font-bold">Edit</button></td>
+                <td class="px-4 py-2 text-center">{{ $product->product_id }}</td>
+                <td class="px-4 py-2 flex justify-center"><img src="{{ asset($product->image_url) }}" alt="" class="w-32 h-32 object-cover"></td>
+                <td class="px-4 py-2 text-center">{{ $product->name }}</td>
+                <td class="px-4 py-2 text-center">Rp. {{ number_format($product->price, 2, ',', '.') }}</td>
+                <td class="px-4 py-2 text-center">{{ Str::limit($product->description, 20) }}</td>
+                <td class="px-4 py-2 text-center">{{ $product->stock }}</td>
+                <td class="px-4 py-2 text-center">
+                    <a href="{{ route('product.edit', $product->product_id) }}" class="text-[#FE5F55] underline font-bold">Edit</a>
+                </td>
             </tr>
+            @endforeach
         </tbody>
       </table>
     </div>

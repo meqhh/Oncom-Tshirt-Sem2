@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ListUsersController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,7 +59,7 @@ Route::get('admin', function () {
 Route::get('list_users', function () {
     return view('admin.list_users');
 });
-Route::get('produk', function () {
+Route::get('listproduk', function () {
     return view('admin.list_produk');
 });
 Route::get('tambah', function () {
@@ -68,9 +69,16 @@ Route::get('edit', function () {
     return view('admin.editproduk');
 });
 
-
+// Route Controller Produk
+Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+Route::get('/listproduk', [ProductController::class, 'index'])->name('product.index');
+Route::get('/editproduk/{id}', [ProductController::class, 'edit'])->name('product.edit');
+Route::post('/editproduk/{id}', [ProductController::class, 'update'])->name('product.update');
+// Route Controller User
 Route::get('/listusers', [ListUsersController::class, 'showUser']);
 Route::delete('/listusers/{id}', [ListUsersController::class, 'destroy'])->name('users.destroy');;
+// Route Controller Login dan Register
 Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'create']);
 Route::get('/login', [LoginController::class, 'index']);

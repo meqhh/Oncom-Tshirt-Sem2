@@ -12,40 +12,41 @@
     <div class="w-3/4 flex content-center flex-col items-center py-20">
         <div class="mb-10 w-full"><h1 class="font-bold text-white text-2xl">Edit Produk</h1></div>
         {{-- container input  --}}
-        <form class="mb-4 w-full grid grid-cols-2 gap-8 pr-20">
+        <form class="mb-4 w-full grid grid-cols-2 gap-8 pr-20" action="{{ route('product.update', $product->product_id) }}" method="POST" enctype="multipart/form-data">
+          @csrf
             {{-- input nama  --}}
             <div class="w-full mb-8">
               <h2 class="text-[#FE5F55] font-bold text-xl mb-2 ">
                 Nama
               </h2>
-              <input type="text" class="w-full auto p-3 rounded-md font-semibold" placeholder="Nama Produk">
+              <input type="text" name="name" value="{{ $product->name }}" class="w-full auto p-3 rounded-md font-semibold" placeholder="Nama Produk"> 
             </div>
             {{-- input harga --}}
             <div class="w-full mb-8">
               <h2 class="text-[#FE5F55] font-bold text-xl mb-2">
                 Harga
               </h2>
-              <input type="text" class="w-full auto p-3 rounded-md font-semibold" id="rupiah_input" type="text" placeholder="Rp" oninput="formatRupiah(this)">
+              <input type="text" name="price" value="{{ $product->price }}" class="w-full auto p-3 rounded-md font-semibold" id="rupiah_input" type="text" placeholder="Rp" oninput="formatRupiah(this)">
             </div>
             {{-- input deskripsi --}}
             <div class="w-full">
               <h2 class="text-[#FE5F55] font-bold text-xl mb-2">
                 Deskripsi
               </h2>
-              <textarea name="" id="" cols="30" rows="10" class="w-full auto p-3 rounded-md font-semibold" placeholder="Deskripsi Produk"></textarea>
+              <textarea name="description" id="" cols="30" rows="10" class="w-full auto p-3 rounded-md font-semibold" placeholder="Deskripsi Produk">{{ $product->description }}</textarea>
             </div>
             {{-- input stok --}}
             <div class="w-full">
               <h2 class="text-[#FE5F55] font-bold text-xl mb-2">
                 Stok
               </h2>
-              <input type="number" class="w-full auto p-3 rounded-md font-semibold" placeholder="Jumlah Stok Produk">
+              <input type="number" name="stock" value="{{ $product->stock }}" class="w-full auto p-3 rounded-md font-semibold" placeholder="Jumlah Stok Produk">
             </div>
             {{-- input gambar --}}
             <div class="w-full">
-              <input class="block w-full text-sm mb-2" id="file_input" type="file" accept="image/*" onchange="previewImage(event)">
-              <img id="image_preview" class="w-1/2 rounded-lg"/>
-              <button class="text-[#FE5F55] font-bold text-xl mb-2 mt-6 py-1 px-4 rounded-md bg-white">
+              <input class="block w-full text-sm mb-2" id="file_input" name="image_url" type="file" accept="image/*" onchange="previewImage(event)">
+              <img id="image_preview" class="w-1/2 rounded-lg" src="{{ asset($product->image_url) }}" />
+              <button type="submit" class="text-[#FE5F55] font-bold text-xl mb-2 mt-6 py-1 px-4 rounded-md bg-white">
                 Update Produk
               </button>
             </div>
@@ -55,30 +56,12 @@
 </div>
 <script>
   function previewImage(event) {
-      const input = event.target;
-      const reader = new FileReader();
+      var reader = new FileReader();
       reader.onload = function(){
-          const imagePreview = document.getElementById('image_preview');
-          imagePreview.src = reader.result;
-          imagePreview.style.display = 'block';
-          input.style.display = 'block';
-      };
-      reader.readAsDataURL(input.files[0]);
+          var output = document.getElementById('image_preview');
+          output.src = reader.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
   }
-  function formatRupiah(input) {
-            let value = input.value.replace(/[^,\d]/g, '').toString();
-            let split = value.split(',');
-            let sisa = split[0].length % 3;
-            let rupiah = split[0].substr(0, sisa);
-            let ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-            if (ribuan) {
-                let separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
-
-            rupiah = split[1] !== undefined ? rupiah + ',' + split[1] : rupiah;
-            input.value = 'Rp' + (rupiah ? ' ' + rupiah : '');
-        }
 </script>
 @include('partial.footer')

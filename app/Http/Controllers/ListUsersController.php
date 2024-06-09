@@ -16,10 +16,10 @@ class ListUsersController extends Controller
         return view('admin.list_users', compact('users'));
     }
 
-    public function destroy($user_id)
+    public function destroy($id)
     {
         // Mencari pengguna berdasarkan id dan menghapusnya
-        $users = User::findOrFail($user_id);
+        $users = User::findOrFail($id);
         $users->delete();
 
         // Mengarahkan kembali dengan pesan sukses
