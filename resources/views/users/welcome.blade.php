@@ -47,7 +47,26 @@
 <section class="bg-gray-100 py-12">
     <div class="container mx-auto text-center">
         <h2 class="text-3xl font-bold mb-8">Visi Dan Misi</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="w-full px-12 flex flex-col gap-20">
+            <div class="w-full flex flex-row shadow-xl">
+                <div class="w-1/4 rounded-xl">
+                    <img src="{{ asset('img/4.jpg') }}" alt="">
+                </div>
+                <div class="w-3/4 p-24 flex items-center justify-center">
+                    <h1 class="font-bold text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non enim ipsa rem totam, hic consectetur, magnam quo neque vero eaque voluptates sed cupiditate culpa, impedit atque amet harum nobis corrupti?</h1>
+                </div>
+            </div>
+            <div class="w-full flex flex-row-reverse shadow-xl">
+                <div class="w-1/4 rounded-xl">
+                    <img src="{{ asset('img/4.jpg') }}" alt="">
+                </div>
+                <div class="w-3/4 p-24 flex items-center justify-center">
+                    <h1 class="font-bold text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non enim ipsa rem totam, hic consectetur, magnam quo neque vero eaque voluptates sed cupiditate culpa, impedit atque amet harum nobis corrupti?</h1>
+                </div>
+            </div>
+            {{-- <div class="w-full flex items-center justify-center">
+                <img src="{{ asset('img/welcome.jpg') }}" alt="" class="h-80">
+            </div> --}}
             
         </div>
     </div>

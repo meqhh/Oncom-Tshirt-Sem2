@@ -49,14 +49,16 @@
               <button type="submit" class="text-[#FE5F55] font-bold text-xl mb-2 mt-6 mr-4 py-1 px-4 rounded-md bg-white">
                 Update Produk
               </button>
-              <form action="{{ route('product.destroy', $product->product_id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-              <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')" class="text-[#FE5F55] font-bold text-xl mb-2 mt-6 py-1 px-4 rounded-md bg-white">Hapus Produk</button>
-              </form>
+              
             </div>
         </form>
-      
+        <form action="{{ route('product.destroy', $product->product_id) }}" method="POST" class="w-full">
+          @csrf
+          @method('DELETE')
+          <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')" class="text-[#FE5F55] font-bold text-xl py-1 px-4 rounded-md bg-white">
+            Hapus Produk
+          </button>
+        </form>
     </div>
 </div>
 <script>
@@ -65,6 +67,8 @@
       reader.onload = function(){
           var output = document.getElementById('image_preview');
           output.src = reader.result;
+          imagePreview.style.display = 'block';
+          input.style.display = 'none';
       }
       reader.readAsDataURL(event.target.files[0]);
   }
