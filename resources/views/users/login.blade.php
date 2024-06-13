@@ -12,7 +12,7 @@
                 {{-- Form Login --}}
                 <h1 class=" text-center font-roboto-condensed text-3xl xl:text-4xl font-bold leading-tight tracking-tight text-white items-center justify-center">LOGIN</h1>
                 {{-- form --}}
-                <form class="space-y-4 md:space-y-6" action="/login" method="POST">
+                <form class="space-y-4 md:space-y-6" action="{{ route('login') }}" method="POST">
                 @csrf
                     {{-- email --}}
                     <div>

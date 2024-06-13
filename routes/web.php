@@ -5,16 +5,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ListUsersController;
 use App\Http\Controllers\ProductController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\ShowController;
+
 /*view function*/
 Route::get('/', function () {
     return view('users.welcome');
@@ -40,11 +32,8 @@ Route::get('keranjang', function () {
 Route::get('list', function () {
     return view('users.list');
 });
-Route::get('search', function () {
-    return view('users.search');
-});
-Route::get('page', function () {
-    return view('users.page');
+Route::get('detail', function () {
+    return view('users.detail');
 });
 Route::get('dashboard', function () {
     return view('users.dashboard'); 
@@ -69,6 +58,9 @@ Route::get('edit', function () {
     return view('admin.editproduk');
 });
 
+// Route Controller Showcase barang 
+Route::get('/oncom', [ShowController::class, 'index'])->name('show');
+Route::get('/oncom/{id}', [ShowController::class, 'show'])->name('product.detail');
 // Route Controller Produk
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
@@ -82,6 +74,6 @@ Route::delete('/listusers/{id}', [ListUsersController::class, 'destroy'])->name(
 // Route Controller Login dan Register
 Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'create']);
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
