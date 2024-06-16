@@ -29,10 +29,10 @@
                 <tr class="bg-gray-100">
                     <td class="px-4 py-2 text-center">{{ $show->user_id }}</td>
                     <td class="px-10 py-2 text-center">{{ Str::limit($show->name, 12) }}</td>
-                    <td class="px-4 py-2 text-center">{{ $show->address }}</td>
+                    <td class="px-4 py-2 text-center">{{ Str::limit($show->address, 15) }}</td>
                     <td class="px-4 py-2 text-center">{{ $show->date_of_birth }}</td>
                     <td class="px-4 py-2 text-center">{{ $show->email }}</td>
-                    <td class="px-4 py-2 text-center">{{ Str::limit($show->password, 50) }}</td>
+                    <td class="px-4 py-2 text-center">{{ $show->role }}</td>
                     <td class="px-4 py-2 text-center"> 
                         <form action="{{ route('users.destroy', $show->user_id) }}" method="POST" style="display:inline;">
                             @csrf
