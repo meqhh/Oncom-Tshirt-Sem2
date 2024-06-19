@@ -1,10 +1,9 @@
 @extends('layout.main')
 @include('partial.navbar')
 <div class="w-full min-h-screen flex content-center flex-col items-center py-20 px-40">
-    <div class="mb-4 w-full">
-        <h1 class="font-bold text-white text-2xl">
-            List User
-        </h1>
+    <div class="w-full flex items-center gap-4 pl-2 my-8">
+        <img src="{{ asset('img/cart.png') }}" alt="" class="w-[30px] h-[30px]">
+        <h1 class="font-condensed font-bold text-3xl text-white">Keranjang</h1>
     </div>
     <table class="w-full">
         <thead class="bg-white border-b border-black">

@@ -15,7 +15,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-[#BDD5EA] h-full">
+<body class="bg-[#BDD5EA] h-full font-condensed">
     @yield('container')
 </body>
 </html>

@@ -45,14 +45,14 @@
                         <button type="submit" class=""><img src="{{ asset('img/cart.png') }}" alt=""></button>
                     </div>
                     @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+                    <div class="alert alert-danger">
+                        <ul>
+                    @foreach ($errors->all() as $error)
+                            <li class="text-red-700 font-bold text-2xl">{{ $error }}</li>
+                    @endforeach
+                        </ul>
+                    </div>
+                    @endif
                 </form>
             </div>
             {{-- container foto  --}}

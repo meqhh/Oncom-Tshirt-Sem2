@@ -5,7 +5,7 @@
             <a href="{{ url('/') }}"><img class="w-100" src="{{ asset('img/logonav.png')}}" alt="Logo"></a>
         </div>
         <div class="w-50 flex flex-row gap-7 align-middle justify-center px-10 py-3">
-            <a href="#">
+            <a href="/beranda/favorite">
                 <img class="w-8" src="{{ asset('img/love.png') }}" alt="Love">
             </a>
             <a href="/beranda/keranjang">

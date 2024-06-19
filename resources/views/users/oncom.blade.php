@@ -17,9 +17,18 @@
                         <a href="{{ route('product.detail', $product->product_id) }}">
                             <img src="{{ asset($product->image_url) }}" alt="{{ $product->name }}" class="w-full h-96 rounded-md">
                         </a>
-                        <div class="p-4">
-                            <h3 class="text-2xl font-medium mb-2">{{ $product->name }}</h3>
-                            <p class="text-lg font-normal">Rp. {{ number_format($product->price, 0, ',', '.') }}</p>
+                        <div class="flex gap-2 w-full justify-between items-end px-2 py-2">
+                            <div class="">
+                                <h3 class="text-2xl font-medium mb-2">{{ Str::limit($product->name, 15) }}</h3>
+                                <p class="text-lg font-normal">Rp. {{ number_format($product->price, 0, ',', '.') }}</p>
+                            </div>
+                            <div class="justify-end">
+                                <form action="{{ route('favorite.post') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->product_id }}">
+                                    <button type="submit" href=""><img src="{{ asset('img/favorite.png') }}" alt=""></button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

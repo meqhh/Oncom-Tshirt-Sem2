@@ -1,5 +1,5 @@
 @extends('layout.main')
-<section class="bg-[#BDD5EA]">
+<section class="bg-[#BDD5EA] min-h-screeen py-10">
     {{-- container --}}
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         {{-- logo web --}}
@@ -10,7 +10,7 @@
         <div class="w-full bg-[#577399] rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 {{-- Form Login --}}
-                <h1 class=" text-center font-roboto-condensed text-3xl xl:text-4xl font-bold leading-tight tracking-tight text-white items-center justify-center">LOGIN</h1>
+                <h1 class=" text-center font-condensed text-3xl xl:text-4xl font-bold leading-tight tracking-tight text-white items-center justify-center">LOGIN</h1>
                 {{-- form --}}
                 <form class="space-y-4 md:space-y-6" action="{{ route('login') }}" method="POST">
                     @csrf
@@ -38,8 +38,8 @@
                     @endif
                     {{-- Penawaran register --}}
                     <div class="flex items-center justify-end">
-                        <p class="text-sm font-medium font-roboto-condensed text-white">Belum terdaftar?  </p>  
-                        <a href="register" class="text-sm font-roboto-condensed font-medium text-[#FE5F55] hover:underline">Daftar</a>
+                        <p class="text-sm font-medium font-condensed text-white">Belum terdaftar?  </p>  
+                        <a href="register" class="text-sm font-condensed font-medium text-[#FE5F55] hover:underline">Daftar</a>
                     </div>
                     <button type="submit" name="submit" class="w-full text-white bg-[#FE5F55] hover:bg-[#d94a41] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">LOGIN</button>
                 </form>

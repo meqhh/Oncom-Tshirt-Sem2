@@ -1,10 +1,10 @@
 @extends('layout.main')
 @include('partial.navbar')
 <section class="bg-cover bg-center h-screen" style="background-image: url('img/welcome.png');">
-    <div class="flex items-center justify-center h-full ">
+    <div class="flex items-center justify-center h-full font-condensed">
         <div class="text-center flex items-center flex-col">
             <img src="{{ asset('img/logo.png') }}" alt="" class="w-96 h-auto mb-8">
-            <h1 class="text-white text-5xl font-bold">Welcome To Oncom Tshirt</h1>
+            <h1 class="text-white text-5xl font-bold font-condensed">Welcome To Oncom Tshirt</h1>
             <p class="text-white text-xl mt-4">Happy Shopping</p>
             <a href="/beranda/oncom" class="mt-6 inline-block bg-[#FE5F55] text-white px-6 py-3 rounded-full text-lg">Shopping Now</a>
         </div>
@@ -12,7 +12,7 @@
 </section>
 
 <!-- Video Pendek -->
-<section class="bg-[#495867] text-white py-12">
+<section class="bg-[#495867] text-white py-12 font-condensed">
     <div class="container mx-auto text-center">
         <h2 class="text-3xl font-bold mb-10">Temukan Lebih Lanjut Tentang Kami</h2>
         <div class="grid grid-cols-3 gap-12 mb-8">

@@ -1,16 +1,16 @@
 <footer class="w-full bg-[#495867] flex-shrink-0 z-30">
     {{-- footer atas --}}
     <div class="flex justify-center items-center pt-8 pb-8 gap-12">
-        <a href="" class="text-[#FE5F55] font-semibold font-roboto-condensed text-3xl">
+        <a href="/beranda/favorite" class="text-[#FE5F55] font-semibold font-roboto-condensed text-3xl">
             Favorit
         </a>
         <a href="" class="text-[#FE5F55] font-semibold font-roboto-condensed text-3xl">
             Profil
         </a>
-        <a href="" class="text-[#FE5F55] font-semibold font-roboto-condensed text-3xl">
+        <a href="/beranda/keranjang" class="text-[#FE5F55] font-semibold font-roboto-condensed text-3xl">
             Keranjang
         </a>
-        <a href="" class="text-[#FE5F55] font-semibold font-roboto-condensed text-3xl">
+        <a href="/contact" class="text-[#FE5F55] font-semibold font-roboto-condensed text-3xl">
             Kontak Kami
         </a>
     </div>

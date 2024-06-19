@@ -16,7 +16,7 @@
                 @csrf
                 {{-- Input nama --}}
                 <div class="w-auto">
-                    <p class="text-white font-roboto-condensed pb-1">Name</p>
+                    <p class="text-white font-condensed pb-1">Name</p>
                     <input type="text" name="name" id="name" value="{{ old('name') }}" class="w-60 rounded-md h-8 p-2" placeholder="name">
                 </div>
                 {{-- Input address  --}}
@@ -26,12 +26,12 @@
                 </div>
                 {{-- Input tanggal lahir --}}
                 <div class="w-auto">
-                    <p class="text-white font-roboto-condensed pb-1">Date of Birth</p>
+                    <p class="text-white font-rcondensed pb-1">Date of Birth</p>
                     <input type="date" class="w-60 rounded-md h-8 p-2" placeholder="DD/MM/YYY" id="date_of_birth" name="date_of_birth" value="{{ old('date_of_birth') }}">
                 </div>
                 {{-- input email --}}
                 <div class="w-auto flex flex-col">
-                    <p class="text-white font-roboto-condensed pb-1">Email</p>
+                    <p class="text-white font-condensed pb-1">Email</p>
                     <input type="email" name="email" id="email" value="{{ old('email') }}" class="w-60 rounded-md h-8 p-2" placeholder="example@domain.com">
                     @error('email')
                     <span class="text-red-500 text-sm">{{"Email already in use"}}</span>
@@ -39,7 +39,7 @@
                 </div>
                 {{-- Input password  --}}
                 <div class="w-full">
-                    <p class="text-white font-roboto-condensed pb-1">Password</p>
+                    <p class="text-white font-condensed pb-1">Password</p>
                     <input type="password" name="password" id="password" class="w-60 rounded-md h-8 p-2" placeholder="**********">
                     @if(session()->has('registerError'))
                     <div class="text-red-600">
@@ -49,7 +49,7 @@
                 </div>
                 {{-- Re-enter password  --}}
                 <div class="w-full">
-                    <p class="text-white font-roboto-condensed pb-1">Re-Enter Password</p>
+                    <p class="text-white font-condensed pb-1">Re-Enter Password</p>
                     <input type="password" placeholder="Re-password" id="Re-password" class="w-60 rounded-md h-8 p-2" name="repassword">
                 </div>
                 {{-- button register --}}
