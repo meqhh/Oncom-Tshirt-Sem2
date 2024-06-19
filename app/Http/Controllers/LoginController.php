@@ -29,12 +29,12 @@ class LoginController extends Controller
 
         if(Auth::attempt($infologin)){
             if (Auth::user()->role == 'admin'){
-             return redirect('beranda/admin');
-             } elseif (Auth::user()->role == 'user'){
-                return redirect('beranda/user');
-             }
-         }else{
-             return redirect('/login')->withErrors('Invalid Username and Password')->withInput();
+                return redirect('beranda/admin');
+            } elseif (Auth::user()->role == 'user'){
+                return redirect('beranda');
+            }
+        } else{
+            return redirect('/login')->withErrors('Invalid Username and Password')->withInput();
          }
 
         return back()->withErrors([
@@ -45,6 +45,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/login');
     }
 }

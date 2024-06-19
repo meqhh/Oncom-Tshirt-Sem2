@@ -6,7 +6,7 @@
             <img src="{{ asset('img/logo.png') }}" alt="" class="w-96 h-auto mb-8">
             <h1 class="text-white text-5xl font-bold">Welcome To Oncom Tshirt</h1>
             <p class="text-white text-xl mt-4">Happy Shopping</p>
-            <a href="oncom" class="mt-6 inline-block bg-[#FE5F55] text-white px-6 py-3 rounded-full text-lg">Shopping Now</a>
+            <a href="/beranda/oncom" class="mt-6 inline-block bg-[#FE5F55] text-white px-6 py-3 rounded-full text-lg">Shopping Now</a>
         </div>
     </div>
 </section>

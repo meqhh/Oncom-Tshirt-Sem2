@@ -1,15 +1,17 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ComponenController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ListUsersController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ComponenController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ListUsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +35,16 @@ Route::middleware('guest')->group(function(){
 // Rute yang hanya dapat diakses oleh pengguna yang telah terautentikasi
 Route::middleware(['auth'])->group(function () {
     Route::get('/beranda', [AdminController::class, 'beranda']);
+    Route::get('/contact', [ComponenController::class, 'contact']);
+    Route::get('/beranda/oncom', [ShowController::class, 'index'])->name('show')->middleware('userAkses:user');
+    Route::get('/beranda/oncom/{id}', [ShowController::class, 'show'])->name('product.detail')->middleware('userAkses:user');
+    Route::post('/cart', [CartController::class, 'store'])->name('cart.store')->middleware('userAkses:user');
+    Route::get('/cart/index', [CartController::class, 'index'])->name('cart.index')->middleware('userAkses:user');
+    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('userAkses:user');
+    Route::get('/beranda/keranjang', [ComponenController::class, 'keranjang'])->middleware('userAkses:user');
     Route::get('/beranda/admin', [AdminController::class, 'admin'])->middleware('userAkses:admin');
     Route::get('/beranda/admin/listuser', [ListUsersController::class, 'showUser'])->middleware('userAkses:admin');
-    Route::delete('/listusers/{id}', [ListUsersController::class, 'destroy'])->name('delete.user')->middleware('userAkses:admin');
+    Route::delete('/beranda/admin/listusers/{id}', [ListUsersController::class, 'destroy'])->name('delete.user')->middleware('userAkses:admin');
     Route::get('/beranda/user', [AdminController::class, 'user'])->middleware('userAkses:user');
     Route::get('/beranda/user/profile', [ProfilController::class, 'profil'])->name('profile')->middleware('userAkses:user');
     Route::get('/beranda/user/editprofile', [ProfilController::class, 'edit'])->name('editprofile')->middleware('userAkses:user');
@@ -66,10 +75,9 @@ Route::delete('/beranda/listusers/{id}', [ListUsersController::class, 'destroy']
 
 //componenuser
 //Route::get('/', [AdminController::class, 'beranda']);
-//Route::get('/keranjang', [ComponenController::class, 'keranjang']);
-//Route::get('/contact', [ComponenController::class, 'contact']);
+Route::get('/keranjang', [ComponenController::class, 'keranjang']);
+
 //Route::get('/favorite', [ComponenController::class, 'favorite']);
-//Route::get('/list', [ComponenController::class, 'list']);
 //profile
 //Route::get('/profile',[ProfilController::class, 'profil']);
 Route::get('/panel', function(){

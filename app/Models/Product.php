@@ -17,6 +17,9 @@ class Product extends Model
         'stock',
         'image_url',
     ];
+    public function carts(){
+        return $this->hasMany(Cart::class, 'product_id', 'product_id');
+    }
 
     public $timestamps = false;
 }

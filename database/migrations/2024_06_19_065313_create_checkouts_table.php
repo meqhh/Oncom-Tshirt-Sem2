@@ -6,18 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
-        Schema::create('carts', function (Blueprint $table) {
-            $table->id('cart_id');
+        Schema::create('checkouts', function (Blueprint $table) {
+            $table->id('checkout_id');
             $table->foreignId('user_id')->constrained('users', 'user_id');
             $table->foreignId('product_id')->constrained('products', 'product_id');
-            $table->string('size');
             $table->integer('quantity');
-            $table->timestamp('added_at')->useCurrent();
             $table->timestamps();
         });
     }
@@ -27,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('carts');
+        Schema::dropIfExists('checkouts');
     }
 };
