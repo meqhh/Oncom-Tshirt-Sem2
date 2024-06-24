@@ -27,10 +27,6 @@
                 <input type="text" name="name" id="name" value="{{ old('name', $user->name) }}" class="w-full px-3 py-2 border rounded">
             </div>
             <div class="mb-4">
-                <label for="email" class="block text-gray-700">Email</label>
-                <input type="email" name="email" id="email" value="{{ old('email', $user->email) }}" class="w-full px-3 py-2 border rounded">
-            </div>
-            <div class="mb-4">
                 <label for="date_of_birth" class="block text-gray-700">Date Of Birth</label>
                 <input type="date" name="date_of_birth" id="date_of_birth" value="{{ old('date_of_birth', $user->date_of_birth) }}" class="w-full px-3 py-2 border rounded">
             </div>

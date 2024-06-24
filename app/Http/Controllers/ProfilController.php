@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 class ProfilController extends Controller
@@ -38,28 +37,30 @@ class ProfilController extends Controller
 
     public function update(Request $request)
     {
-        $user = Auth::user();
+    $user = Auth::user();
 
-        // Validasi data yang diterima
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:users,email,' . Auth::id(),
-            'date_of_birth' => 'required|date',
-            'address' => 'required|max:400',
-        ]);
-        if ($request->hasFile('profile_photo')) {
-            // Delete old profile photo if it exists
-            if ($user->profile_photo_path) {
-                Storage::disk('public')->delete($user->profile_photo_path);
-            }
+    // Validasi data yang diterima
+    $validatedData = $request->validate([
+        'name' => 'required|max:255',
+        'email' => 'required|email|unique:users,email,' . $user->id,
+        'date_of_birth' => 'required|date',
+        'address' => 'required|max:400',
+    ]);
 
-            $path = $request->file('profile_photo')->store('profile_photos', 'public');
-            $user->profile_photo_path = $path;
+    if ($request->hasFile('profile_photo')) {
+        // Delete old profile photo if it exists
+        if ($user->profile_photo_path) {
+            Storage::disk('public')->delete($user->profile_photo_path);
         }
+
+        $path = $request->file('profile_photo')->store('profile_photos', 'public');
+        $user->profile_photo_path = $path;
+    }
+
         // Perbarui data user
         $user->update($validatedData);
 
-        return redirect()->route('profile', $user->id)->with('success', 'User updated successfully');
+        return redirect()->route('profile', $user->user_id)->with('success', 'User updated successfully');
     }
     
     public function updateadmin(Request $request)

@@ -9,8 +9,8 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    use Notifiable, HasApiTokens;
     protected $primaryKey = 'user_id';
-    use Notifiable;
     protected $fillable = [
         'name', 
         'address',
@@ -21,9 +21,6 @@ class User extends Authenticatable
         'role',
     ];
 
-    protected $guarded = [
-        'id',
-    ];
     protected $hidden = [
         'password',
     ];

@@ -6,13 +6,14 @@ use App\Http\Controllers\ShowController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ComponenController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ListUsersController;
-use App\Http\Controllers\FavoriteController;
 
 
 /*view function*/
@@ -55,14 +56,23 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/beranda/favorite/post', [FavoriteController::class, 'store'])->name('favorite.post')->middleware('userAkses:user');
     Route::get('/beranda/favorite', [FavoriteController::class, 'index'])->name('favorite.index')->middleware('userAkses:user');
     Route::delete('/beranda/favorite/delete/{id}', [FavoriteController::class, 'destroy'])->name('favorite.destroy')->middleware('userAkses:user');
-// Route Controller Produk
+    // Route Controller Produk
     Route::get('/beranda/tambah', [ProductController::class, 'create'])->name('product.create')->middleware('userAkses:admin');
     Route::post('/product', [ProductController::class, 'store'])->name('product.store')->middleware('userAkses:admin');
     Route::get('/beranda/listproduk', [ProductController::class, 'index'])->name('product.index')->middleware('userAkses:admin');
     Route::get('/beranda/editproduk/{id}', [ProductController::class, 'edit'])->name('product.edit');
     Route::post('/beranda/editproduk/{id}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/beranda/editproduk/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+
+    // Profile route
+    Route::get('/profile', [ProfilController::class, 'profil'])->name('profile')->middleware('userAkses:user');
+    Route::get('/editprofile', [ProfilController::class, 'edit'])->name('editprofile')->middleware('userAkses:user');
+    Route::post('/profile', [ListUsersController::class, 'update'])->name('update.profile')->middleware('userAkses:user');
     
+    // checkout
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::post('/checkout', [CartController::class, 'processCheckout'])->name('cart.processCheckout');
+    Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
 });
 
 
