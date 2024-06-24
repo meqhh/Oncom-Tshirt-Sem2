@@ -4,7 +4,7 @@
     <div class="flex justify-center">
         <div class="flex flex-row-reverse gap-4">
             <input type="text" placeholder="Cari..." class="w-96 py-2 pr-1 pl-4 my-5 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-600">
-            <button type="submit" class=" mt-5 w-24 h-11 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:bg-blue-700">
+            <button type="submit" class=" mt-5 w-24 h-11 bg-[#FE5F55] text-white rounded-lg hover:bg-[#cf463c] focus:outline-none focus:bg-blue-700">
                 Cari
             </button>
         </div>
