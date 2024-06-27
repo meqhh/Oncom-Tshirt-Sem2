@@ -30,6 +30,10 @@
                                         <td class="px-6 py-4 whitespace-nowrap">Rp.{{ number_format($cart->quantity * $cart->product->price, 2) }}</td>
                                     </tr>
                                 @endforeach
+                                <tr>
+                                    <td colspan="4" class="text-right"><strong>Total Payment</strong></td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right"><strong>Rp. {{ number_format($totalPrice, 0, ',', '.') }}</strong></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

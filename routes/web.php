@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\OrderShipped;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ShowController;
@@ -14,6 +16,7 @@ use App\Http\Controllers\ComponenController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ListUsersController;
+use App\Http\Controllers\NotificationController;
 
 
 /*view function*/
@@ -70,11 +73,25 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile', [ListUsersController::class, 'update'])->name('update.profile')->middleware('userAkses:user');
     
     // checkout
-    Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout')->middleware('userAkses:user');
     Route::post('/checkout', [CartController::class, 'processCheckout'])->name('cart.processCheckout');
-    Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
+    Route::get('/orders/{order_id}', [OrderController::class, 'userShow'])->name('order.user');
+
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notification');
+    Route::patch('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
+
+    Route::get('admin/order', [OrderController::class, 'index'])->name('order')->middleware('userAkses:admin');
+    Route::get('admin/order/{id}', [OrderController::class, 'show'])->name('order.show')->middleware('userAkses:admin');
+    Route::post('admin/orders/{order_id}/status', [OrderController::class, 'updateStatus'])->name('order.updateStatus')->middleware('userAkses:admin');
+    Route::get('admin/orders/{order_id}', [OrderController::class, 'show'])->name('order.show')->middleware('userAkses:admin');
+    Route::post('/orders/{order}/update-status', [OrderController::class, 'updateStatus'])->name('orders.update-status');
 });
 
+
+Route::get('/mail', function(){
+    Mail::to('oncom.pbl@gmail.com')
+        ->send(new OrderShipped());
+});
 
 // Rute umum
 Route::get('/home', function(){

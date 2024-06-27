@@ -22,7 +22,7 @@ class Order extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+    return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
     // Define the relationship with OrderItem
@@ -32,7 +32,7 @@ class Order extends Model
     }
     public function items()
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->hasMany(OrderItem::class, 'order_id', 'order_id');
     }
 }
 

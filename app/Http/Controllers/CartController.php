@@ -56,51 +56,56 @@ class CartController extends Controller
         $userId = auth()->id();
         $carts = Cart::where('user_id', $userId)->get();
 
+        $totalPrice = 0;
+        foreach ($carts as $item) {
+            $totalPrice += $item->product->price * $item->quantity;
+        }
+        
         if ($carts->isEmpty()) {
             return redirect()->back()->with('error', 'Keranjang Anda kosong!');
         }
 
-        return view('users.checkout', compact('carts'));
+        return view('users.checkout', compact('carts', 'totalPrice'));
     }
 
-    public function processCheckout(Request $request){
-    $user = Auth::user();
-    $address = $user->address;
-
-    $request->validate([
-        'pengiriman' => 'required|string|max:255',
-        'payment_method' => 'required',
-        'payment_proof' => 'required_if:payment_method,QRIS|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
-
-    $order = Order::create([
-        'user_id' => auth()->id(),
-        'shipping_address' => $address, // Update sesuai dengan kebutuhan
-        'shipping_method' => $request->pengiriman, // Update sesuai dengan kebutuhan
-        'payment_method' => $request->payment_method,
-    ]);
-
-    if ($request->hasFile('payment_proof')) {
-        $fileName = time().'.'.$request->payment_proof->extension();
-        $request->payment_proof->move(public_path('payment_proofs'), $fileName);
-        $order->payment_proof = $fileName;
-        $order->save();
-    }
-
-    // Pindahkan data dari cart ke order_items
-    $carts = Cart::where('user_id', auth()->id())->get();
-    foreach ($carts as $cart) {
-        OrderItem::create([
-            'order_id' => $order->order_id,
-            'product_id' => $cart->product_id,
-            'quantity' => $cart->quantity,
-            'size' => $cart->size,
-            'total_price' => $cart->quantity * $cart->product->price,
+    public function processCheckout(Request $request)
+    {
+        $user = Auth::user();
+        $address = $user->address;
+    
+        $request->validate([
+            'pengiriman' => 'required|string|max:255',
+            'payment_method' => 'required',
+            'payment_proof' => 'required_if:payment_method,QRIS|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        $cart->delete();
-    }
-
-    return redirect()->route('order.show', ['order' => $order->order_id])->with('success', 'Order has been placed successfully.');
+    
+        $order = Order::create([
+            'user_id' => auth()->id(),
+            'shipping_address' => $address,
+            'shipping_method' => $request->pengiriman,
+            'payment_method' => $request->payment_method,
+        ]);
+    
+        if ($request->hasFile('payment_proof')) {
+            $fileName = time().'.'.$request->payment_proof->extension();
+            $request->payment_proof->move(public_path('payment_proofs'), $fileName);
+            $order->payment_proof = $fileName;
+            $order->save();
+        }
+    
+        $carts = Cart::where('user_id', auth()->id())->get();
+        foreach ($carts as $cart) {
+            OrderItem::create([
+                'order_id' => $order->order_id,
+                'product_id' => $cart->product_id,
+                'quantity' => $cart->quantity,
+                'size' => $cart->size,
+                'total_price' => $cart->quantity * $cart->product->price,
+            ]);
+            $cart->delete();
+        }
+    
+        return redirect()->route('order.user', ['order_id' => $order->order_id])->with('success', 'Order has been placed successfully.');
     }
 }
 

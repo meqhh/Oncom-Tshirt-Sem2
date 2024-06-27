@@ -10,7 +10,7 @@
             <a href=""><h1 class="text-[#F7F7FF] text-center font-bold text-3xl">Pesanan</h1></a>
         </div>
         <div class="w-full py-5 bg-[#577399] hover:bg-[#FE5F55] transition duration-500 ease-in-out">
-            <a href=""><h1 class="text-[#F7F7FF] text-center font-bold text-3xl">Laporan</h1></a>
+            <a href="{{ route('order') }}"><h1 class="text-[#F7F7FF] text-center font-bold text-3xl">Laporan</h1></a>
         </div>
         <div class="w-full py-5 bg-[#577399] hover:bg-[#FE5F55] transition duration-500 ease-in-out">
             <a href="listusers"><h1 class="text-[#F7F7FF] text-center font-bold text-3xl">List User</h1></a>

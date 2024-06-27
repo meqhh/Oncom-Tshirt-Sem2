@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrderItem extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'order_time_id';
+    protected $primaryKey = 'order_item_id';
 
     // Definisikan fillable jika diperlukan
     protected $fillable = [
@@ -23,7 +23,7 @@ class OrderItem extends Model
     // Relasi ke model Order
     public function order()
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(Order::class, 'order_id', 'order_id');
     }
 
     // Relasi ke model Product jika diperlukan

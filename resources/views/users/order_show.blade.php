@@ -28,12 +28,13 @@
                                     <td class="px-6 py-4 text-center whitespace-nowrap">Rp.{{ number_format($item->total_price, 2) }}</td>
                                 </tr>
                             @endforeach
+                            
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="flex flex-col">
-                <h2 class="text-2xl font-bold mb-4 text-white">Shipping & Payment Details</h2>
+                <h2 class="text-2xl font-bold mb-4 text-white">Detail Pengiriman dan Pembayaran</h2>
                 <div class="bg-white shadow-md rounded-lg p-4">
                     <div class="mb-4">
                         <label class="block text-sm font-medium text-gray-700">Shipping Address</label>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -72,19 +74,26 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-    $product = Product::findOrFail($id);
-
-    // Hapus gambar terkait jika ada
-    if ($product->image_url) {
-        // Dapatkan nama file dari URL gambar
-        $filename = $product->image_url;
-        // Hapus file dari penyimpanan publik
-        Storage::delete('public/' . $filename);
-    }
-
-    $product->delete();
-
-    return redirect()->route('product.index')->with('success', 'Produk berhasil dihapus');
+        $product = Product::findOrFail($id);
+    
+        // Hapus entri terkait di tabel order_items terlebih dahulu
+        OrderItem::where('product_id', $id)->delete();
+    
+        // Hapus entri terkait di tabel carts
+        Cart::where('product_id', $id)->delete();
+    
+        // Hapus gambar terkait jika ada
+        if ($product->image_url) {
+            // Dapatkan nama file dari URL gambar
+            $filename = $product->image_url;
+            // Hapus file dari penyimpanan publik
+            Storage::delete('public/' . $filename);
+        }
+    
+        // Kemudian hapus produk
+        $product->delete();
+    
+        return redirect()->route('product.index')->with('success', 'Produk berhasil dihapus');
     }
 
 }
